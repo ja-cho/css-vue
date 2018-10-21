@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue - css</title>
+  <style>
+	body {
+		box-sizing: border-box;
+	}
+    .canvas {
+		width: 50%;
+		height: 500px;
+		float: left;
+	}
+	.menu {
+		width: 50%;
+		height: 500px;
+		float: left;
+	}
+	.object {
+		width: 100px;
+		height: 100px;
+		background: blue;
+		margin: 100px auto;
+	}
+	.row {
+		margin-bottom: 20px;
+	}
+	code {
+		width: 100%;
+		display: none;
+	}
+	code.show {
+		display: block;
+	}
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+  </style>
+</head>
+<body>
+<div id="app">
+	<h2>{{ title }}</h2>
+	  <div class="canvas">
+		<div class="object" v-bind:style="
+			{
+			'background': background,
+			'border-radius': borderradius + 'px'
+			}"
+		>		
+		</div>
+		<div class="row">
+			<label for="result">Display CSS result:</label>
+			<input id="result" type="checkbox" v-model="showresult"/>
+		</div>
+		<code v-bind:class="{ 'show' : showresult }">
+			background: {{ background }}</br>
+			border-radius: {{ borderradius }}
+		</code>
+	  </div>
+	  <div class="menu">
+		<div class="row">
+			<label for="background">Set background to canvas element:</label>
+			<input id="background" type="text" v-model="background"/>
+		</div>
+		<div class="row">
+			<label for="radius">Set border radius to canvas element:</label>
+			<input id="radius" type="text" v-model="borderradius"/>
+		</div>		
+	  </div>
+</div>
+<script src="vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
